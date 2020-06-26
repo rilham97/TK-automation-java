@@ -1,4 +1,4 @@
-package page;
+package base;
 
 import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
@@ -17,7 +17,7 @@ import org.testng.Assert;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 
-public class MainFeature extends BaseDriver {
+public class MainFunction extends BaseDriver {
 	BaseDriver base = new BaseDriver();	
 
 	public void verifyEl(String element) {
@@ -36,7 +36,7 @@ public class MainFeature extends BaseDriver {
 		Assert.assertTrue(form.getText().contains(text)); 
 	}
 
-	public void input(String element, String key) {
+	public void input(String element, String text) {
 		Actions action = new Actions(driver);
 		MobileElement form = (MobileElement) driver.findElementByXPath(element);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -45,7 +45,7 @@ public class MainFeature extends BaseDriver {
 		//mengecek sampai keyboard-nya ada
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.isKeyboardShown();
-		action.sendKeys(key).perform();
+		action.sendKeys(text).perform();
 		//Assert.assertTrue(form.getText().contains(key)); 
 	}
 
@@ -61,13 +61,6 @@ public class MainFeature extends BaseDriver {
 		catch (NoSuchElementException  e) {
 			System.out.println("Error on Page: button cannot clicked");
 		}
-	}
-
-	public void check_screen(String element,String text) {
-		MobileElement tittle = (MobileElement) driver.findElementByXPath(element);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		System.out.println(tittle.getText());
-		Assert.assertTrue(tittle.getText().contains(text));		
 	}
 
 	public void clear(String element) {
@@ -94,8 +87,4 @@ public class MainFeature extends BaseDriver {
 		driver.pushFile("/storage/emulated/0/download/image_automation.jpg", new File(pathFile));
 	}
 
-	public void selectCity() {
-		String city= "//android.view.View[2]/android.view.View/android.view.View/android.view.View[1]";
-		click(city);
-	}	
 }

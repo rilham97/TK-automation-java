@@ -1,4 +1,4 @@
-package page;
+package base;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -13,19 +13,17 @@ public class BaseDriver {
   public WebDriverWait wait;
 
   public void setUp() {
-
+	  	System.out.println("Turn On the driver");
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("deviceName", "MI 8 SE");
 		caps.setCapability("deviceid", "ccbcab1"); //DeviceId from "adb devices" command
 //		caps.setCapability("udid", "emulator-5554");
-		
 		caps.setCapability("platformName", "Android");
 		caps.setCapability("platformVersion", "10.0");
-		caps.setCapability("skipUnlock",true);
 		caps.setCapability("appPackage", "com.mitrais.teman_kondangan");
 		caps.setCapability("appActivity","com.mitrais.teman_kondangan.MainActivity");
 		caps.setCapability("noReset",false);
-
+		caps.setCapability("skipUnlock",true);
 		//grant access gallery
 		caps.setCapability("autoGrantPermissions", true);
 		//disable keyboard
@@ -40,6 +38,13 @@ public class BaseDriver {
 			e.printStackTrace();
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+  
+  public void tearDown() {
+		System.out.println("Turn Off the driver");
+		if (driver != null) {
+			driver.quit();
+		}
   }
 
 }
