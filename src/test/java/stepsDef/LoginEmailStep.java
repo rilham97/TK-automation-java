@@ -15,24 +15,24 @@ public class LoginEmailStep {
 	}
 
 	@When("User input valid email with {string}")
-	public void user_input_valid_email_with(String string) {
+	public void user_input_valid_email_with(String string) throws InterruptedException {
 	    login.inputEmail(string);
 
 	}
 
 	@And("User input valid password with {string}")
-	public void user_input_valid_password_with(String string) {
+	public void user_input_valid_password_with(String string) throws InterruptedException {
 	    login.inputPassword(string);
 	}
 	
 	@When("User fill email form with {string}")
-	public void user_fill_email_form_with(String string) {
+	public void user_fill_email_form_with(String string) throws InterruptedException {
 	    login.inputEmail(string);
 
 	}
 
 	@And("User fill password form with {string}")
-	public void user_fill_password_form_with(String string) {
+	public void user_fill_password_form_with(String string) throws InterruptedException {
 		login.inputPassword(string);
 
 	}
