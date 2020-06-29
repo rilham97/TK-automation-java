@@ -35,16 +35,19 @@ public class MainFunction extends BaseDriver {
 		Assert.assertTrue(form.getText().contains(text)); 
 	}
 
-	public void input(String element, String text) {
+	public void input(String element, String text) throws InterruptedException {
 		Actions action = new Actions(driver);
 		MobileElement form = (MobileElement) driver.findElementByXPath(element);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		form.click();
+		Thread.sleep(1000);
+
 
 		//mengecek sampai keyboard-nya ada
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.isKeyboardShown();
 		action.sendKeys(text).perform();
+		driver.hideKeyboard();
 		//Assert.assertTrue(form.getText().contains(key)); 
 	}
 
