@@ -1,6 +1,15 @@
 # TK-automation
 
 ## Maven Running Configuration
+1. Please notice on your BaseDriver.java  
+Change your device ID using own device
+2. Please notice on your pom.xml
+on path `<id>local-maven-repo</id>` please change the path to your local project
+
+For additional please **ignore** `BaseDriver.java` and `pom.xml` when you want to push or pull the project from master.
+
+
+## Maven Running Configuration
 Right-click the pom.xml file and select Run As  Maven build.
 ![alt text](https://www.vogella.com/tutorials/EclipseMaven/img/xm2e_javaconverttomaven20.png.pagespeed.ic.LJL9xBE1M_.webp)  
 
