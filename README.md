@@ -4,7 +4,7 @@
 Right-click the pom.xml file and select Run As  Maven build.
 ![alt text](https://www.vogella.com/tutorials/EclipseMaven/img/xm2e_javaconverttomaven20.png.pagespeed.ic.LJL9xBE1M_.webp)  
 
-Enter "clean install" as Goal.
+Enter `clean install` as Goal.  
 For the first build you should run mamven build, after that you can run MVN Test without run build as long you don't add or change any dependency
 
 ## Runner Test Configuration
