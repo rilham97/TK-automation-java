@@ -41,13 +41,13 @@ public class MainFunction extends BaseDriver {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		form.click();
 		Thread.sleep(1000);
-		//wait until key
+		//Wait until keyboard is shown
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.isKeyboardShown();
 		action.sendKeys(text).perform();
-		driver.hideKeyboard();
 		//Hide the keyboard
 		driver.hideKeyboard();
+
 	}
 
 	public void click(String element) {
