@@ -18,12 +18,13 @@ public class LoginFunction extends BaseDriver {
 		mainFunc.verifyEl(Login_btn);
 	}
 	
-	public void inputEmail(String email) {
+
+	public void inputEmail(String email) throws InterruptedException {
 		mainFunc.input(Email_form, email);
 		//feature.assertText(Email_form, email);
 	}
 	
-	public void inputPassword(String password) {
+	public void inputPassword(String password) throws InterruptedException {
 		mainFunc.input(Password_form, password);
 	}
 	
