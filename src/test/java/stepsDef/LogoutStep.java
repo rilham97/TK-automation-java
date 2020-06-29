@@ -11,7 +11,7 @@ public class LogoutStep {
     LogoutFunction logoutFunction = new LogoutFunction();
 
     @Given("user already in the home screen")
-    public void user_already_in_the_home_screen() {
+    public void user_already_in_the_home_screen() throws InterruptedException {
         loginFunction.verifyLoginPage();
         loginFunction.inputEmail("ron@email.com");
         loginFunction.inputPassword("Ron@123!");
