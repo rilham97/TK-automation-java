@@ -18,8 +18,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 
 public class MainFunction extends BaseDriver {
-	BaseDriver base = new BaseDriver();	
-
+	
 	public void verifyEl(String element) {
 		try {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -42,14 +41,13 @@ public class MainFunction extends BaseDriver {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		form.click();
 		Thread.sleep(1000);
-
-
-		//mengecek sampai keyboard-nya ada
+		//Wait until keyboard is shown
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.isKeyboardShown();
 		action.sendKeys(text).perform();
+		//Hide the keyboard
 		driver.hideKeyboard();
-		//Assert.assertTrue(form.getText().contains(key)); 
+
 	}
 
 	public void click(String element) {
