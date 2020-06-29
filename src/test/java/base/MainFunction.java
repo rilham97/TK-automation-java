@@ -18,8 +18,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 
 public class MainFunction extends BaseDriver {
-	BaseDriver base = new BaseDriver();	
-
+	
 	public void verifyEl(String element) {
 		try {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

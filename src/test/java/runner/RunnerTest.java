@@ -13,9 +13,9 @@ import io.cucumber.testng.TestNGCucumberRunner;
 		// Location your feature files 
 		features = {"src/test/resources/features"},
 		// Which tags
-		tags = {"@Negative"},
+		tags = {"@Positive or @Negative"},
 		// Location your step definition 
-		glue = {"stepDefinitions"},
+		glue = {"stepsDef"},
 		// Output the report
 		plugin = {"json:target/cucumber-reports/LoginUI.json"}
 		)
