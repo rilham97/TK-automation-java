@@ -17,7 +17,6 @@ public class LoginFunction extends BaseDriver {
 		mainFunc.verifyEl(Password_form);
 		mainFunc.verifyEl(Login_btn);
 	}
-	
 
 	public void inputEmail(String email) throws InterruptedException {
 		feature.input(Email_form, email);
