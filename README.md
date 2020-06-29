@@ -1,6 +1,6 @@
 # TK-automation
 
-## Maven Running Configuration
+## ⚠️ Maven Running Configuration
 1. Please notice on your BaseDriver.java  
 Change your device ID using own device
 2. Please notice on your pom.xml
@@ -24,3 +24,11 @@ For @CucumberOptions, the above would look like:
 * Run feature or scenario which have tag label tag1 **OR** tag2 = {"@tag1 or @tag2"}
 * Run feature or scenario which have tag label tag1 **AND** tag2  = {"@tag1 and @tag2"}
 * Combianation clause tags = {"@tag1 and (@tag2 or @tag3)"}
+
+
+### To Do
+1. Screenshoot listener on cucumber report
+2. API call
+3. DB call
+4. Dynamic device 
+5. Move to Flutter Driver script
