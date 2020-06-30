@@ -8,9 +8,9 @@ Feature: Create event
     When User click on create event button icon
     And User input valid event title with <title>
     And User input valid city with <city>
-    And User input valid event date with <eventDate>
-    And User input valid event start time with <startTime>
-    And User input valid event end time with <endTime>
+    And User input valid event date
+    And User input valid event start time
+    And User input valid event end time
     And User set range age
     And User set gender
     And User input valid additional info <addInfo>
@@ -19,5 +19,5 @@ Feature: Create event
     And User directed to home screen
 
     Examples:
-      | title                |
-      | "resta.mu@gmail.com" |
+      | title                     | city      | addInfo         |
+      | "Kondangan makan Kenyang" | "Jakarta" | "makan kenyang" |
