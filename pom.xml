@@ -113,7 +113,7 @@
 	<repositories>
 		<repository>
 			<id>local-maven-repo</id>
-			<url>file:///D:/Coding-an/eclipse-workspace/TemanKondangan_Automation/repository</url>
+			<url>file:///C:/Users/Dyah_KN298/git/TK-automation/repository</url>
 		</repository>
 	</repositories>
 </project>

@@ -15,12 +15,11 @@ public class BaseDriver {
   public void setUp() {
 	  	System.out.println("Turn On the driver");
 		DesiredCapabilities caps = new DesiredCapabilities();
-	    caps.setCapability("deviceName", "emulator-5554");
-	  	//caps.setCapability("deviceName", "MI 8 SE");
-		//caps.setCapability("deviceid", "ccbcab1"); //DeviceId from "adb devices" command
+		caps.setCapability("deviceName", "ANDROID");
+//		caps.setCapability("deviceid", "ccbcab1"); //DeviceId from "adb devices" command
 //		caps.setCapability("udid", "emulator-5554");
 		caps.setCapability("platformName", "Android");
-		//caps.setCapability("platformVersion", "10.0");
+		caps.setCapability("platformVersion", "10.0");
 		caps.setCapability("appPackage", "com.mitrais.teman_kondangan");
 		caps.setCapability("appActivity","com.mitrais.teman_kondangan.MainActivity");
 		caps.setCapability("noReset",false);
