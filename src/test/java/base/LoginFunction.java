@@ -17,11 +17,9 @@ public class LoginFunction extends BaseDriver {
 		mainFunc.verifyEl(Password_form);
 		mainFunc.verifyEl(Login_btn);
 	}
-	
 
 	public void inputEmail(String email) throws InterruptedException {
 		mainFunc.input(Email_form, email);
-
 	}
 	
 	public void inputPassword(String password) throws InterruptedException {

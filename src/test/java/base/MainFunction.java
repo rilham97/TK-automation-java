@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import io.appium.java_client.MobileBy;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
@@ -86,6 +87,10 @@ public class MainFunction extends BaseDriver {
 
 	public void pushFile(String pathFile) throws IOException {
 		driver.pushFile("/storage/emulated/0/download/image_automation.jpg", new File(pathFile));
+	}
+
+	public void scrollUntilFindText(String text){
+		driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("+ "new UiSelector().text(\""+text+"\"));"));
 	}
 
 }
