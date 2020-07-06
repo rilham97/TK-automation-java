@@ -9,9 +9,13 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.MobileBy;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 
@@ -93,4 +97,8 @@ public class MainFunction extends BaseDriver {
 		driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("+ "new UiSelector().text(\""+text+"\"));"));
 	}
 
+	public void waitElement(String element){
+		WebDriverWait wait = new WebDriverWait(driver, 10000);
+ 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(element))); 
+	}
 }
