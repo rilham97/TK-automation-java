@@ -39,9 +39,9 @@ public class RemoveUserStep {
         removeUserFunction.clickContinue();
     }
 
-    @Then("User directed to home screens")
-    public void user_directed_to_home_screens() {
-        removeUserFunction.verifyHomeScreen();
+    @Then("User directed to login screen")
+    public void user_directed_to_login_screen() {
+        removeUserFunction.verifyLoginScreen();
     }
 
     @Then("User can't login with the account that already removed")

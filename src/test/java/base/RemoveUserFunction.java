@@ -26,7 +26,7 @@ public class RemoveUserFunction extends BaseDriver {
         mainFunc.click(cont);
     }
 
-    public void verifyHomeScreen(){
+    public void verifyLoginScreen(){
         loginFunction.verifyLoginPage();
     }
 
