@@ -15,8 +15,8 @@ public class UpdateEventStep {
     @Given("User already login and in the home screen")
     public void user_already_login_and_in_the_home_screen() throws InterruptedException {
     	 loginFunction.verifyLoginPage();
-         loginFunction.inputEmail("string@mail.com");
-         loginFunction.inputPassword("Password!2");
+         loginFunction.inputEmail("tokyo@email.com");
+         loginFunction.inputPassword("Tokyo@123!");
          loginFunction.pressLogin();
          loginFunction.verifyHomePage();
     }
