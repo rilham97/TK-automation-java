@@ -1,7 +1,7 @@
 # new feature
 # Tags: optional
 
-Feature: A description
+Feature: Remove User
 
   Scenario: User want to remove account
     Given User in the home screen
@@ -10,5 +10,5 @@ Feature: A description
     And Click on delete account
     And Click on continue button from the popup confirmation
     Then User directed to home screens
-    And User can't login with the previous
+    And User can't login with the account that already removed
 
