@@ -68,6 +68,9 @@ public class UpdateEventFunction extends BaseDriver{
 		mainFunc.click(Menu);
 		mainFunc.click(MyEvent);
 		mainFunc.waitElement(firstEvent);
+		}
+	
+	public void sortEventASC() throws InterruptedException {
 		mainFunc.click(Filter);
 		mainFunc.click(ASC);
 		}
