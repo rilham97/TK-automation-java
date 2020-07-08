@@ -25,6 +25,12 @@ public class UpdateEventStep {
     public void user_go_to_My_Event_Screen() throws InterruptedException {
         updateEventFunction.goToMyEvent();
     }
+    
+    @Given("User sort event based on Event Date\\(ASC)")
+    public void user_sort_event_based_on_Event_Date_ASC() throws InterruptedException {
+    	updateEventFunction.sortEventASC();
+    }
+
 
     @When("User click on the first event")
     public void user_click_on_the_first_event() throws InterruptedException {

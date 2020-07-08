@@ -5,6 +5,9 @@ import static io.appium.java_client.touch.offset.ElementOption.element;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -100,5 +103,13 @@ public class MainFunction extends BaseDriver {
 	public void waitElement(String element){
 		WebDriverWait wait = new WebDriverWait(driver, 10000);
  		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(element))); 
+	}
+	
+	public  Connection setupDB() throws ClassNotFoundException, SQLException{
+		Connection con;
+		String dbUrl = "jdbc:postgresql://chippermitrais.ddns.net:5432/postgres";		
+	    Class.forName("org.postgresql.Driver");
+	    con = DriverManager.getConnection(dbUrl,"postgres","92JjTEb5CYmqkr");
+	    return con;
 	}
 }
