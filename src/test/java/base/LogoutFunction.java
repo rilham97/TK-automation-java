@@ -21,7 +21,7 @@ public class LogoutFunction extends BaseDriver {
 	public void clickLogout(){
 		TouchAction touchAction = new TouchAction(driver);
 		touchAction.tap(PointOption.point(244, 2004)).perform();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	public void clickYesOnPopupConfirmation(){

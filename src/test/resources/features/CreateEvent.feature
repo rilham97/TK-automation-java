@@ -1,6 +1,5 @@
 # new feature
 # Tags: optional
-
 Feature: Create event
 
   Scenario Outline: User create event with valid data
@@ -18,6 +17,6 @@ Feature: Create event
     Then Event is created
     And User directed to home screen
 
-    Examples:
+    Examples: 
       | title                     | city      | addInfo         |
       | "Kondangan makan Kenyang" | "Jakarta" | "makan kenyang" |

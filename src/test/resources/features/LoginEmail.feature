@@ -13,7 +13,6 @@ Feature: Login to Application
     Examples: 
       | email                | password  |
       | "resta.mu@gmail.com" | "R3st@mu" |
-      | "fadhila@mail.com"   | "R3st@mu" |
 
   @Regression @Negative
   Scenario Outline: Login using blank data

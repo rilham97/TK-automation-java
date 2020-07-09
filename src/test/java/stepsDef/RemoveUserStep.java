@@ -1,5 +1,7 @@
 package stepsDef;
 
+import java.sql.SQLException;
+
 import base.LoginFunction;
 import base.RemoveUserFunction;
 import io.cucumber.java.en.Given;

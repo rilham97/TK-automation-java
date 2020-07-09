@@ -24,6 +24,7 @@ import org.testng.Assert;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.cucumber.messages.internal.com.google.common.collect.ImmutableMap;
 
 public class MainFunction extends BaseDriver {
 	
@@ -54,7 +55,8 @@ public class MainFunction extends BaseDriver {
 		driver.isKeyboardShown();
 		action.sendKeys(text).perform();
 		//Hide the keyboard
-		driver.hideKeyboard();
+		driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Go"));
+//		driver.hideKeyboard();
 
 	}
 

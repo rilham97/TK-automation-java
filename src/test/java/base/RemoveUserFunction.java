@@ -48,3 +48,4 @@ public class RemoveUserFunction extends BaseDriver {
     }
 
 }
+
