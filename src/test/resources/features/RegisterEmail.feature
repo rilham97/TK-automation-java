@@ -15,8 +15,8 @@ Feature: Register using email
     Then User should be directed to home screen
 
     Examples: 
-      | fullName             | gender   | email                 | password  | confirmPass |
-      | "Automation Account" | "Female" | "automation4@mail.com" | "Test123!"| "Test123!"  |
+      | fullName             | gender   | email                  | password   | confirmPass |
+      | "Automation Account" | "Female" | "automation4@mail.com" | "Test123!" | "Test123!"  |
 
   Scenario Outline: Register using invalid email format
     Given User has accessed Create Account page
@@ -31,9 +31,9 @@ Feature: Register using email
     Then User should recieve error message email on register screen
 
     Examples: 
-      | fullName             | gender   | email        | password  | confirmPass |
-      | "Automation Account" | "Female" | "automation" | "Test123!"| "Test123!"  |
-      
+      | fullName             | gender   | email        | password   | confirmPass |
+      | "Automation Account" | "Female" | "automation" | "Test123!" | "Test123!"  |
+
   Scenario Outline: Register using invalid password format
     Given User has accessed Create Account page
     When User input valid Full Name with <fullName>
@@ -47,5 +47,5 @@ Feature: Register using email
     Then User should recieve error message password on register screen
 
     Examples: 
-      | fullName             | gender   | email        | password  | confirmPass |
-      | "Automation Account" | "Female" | "automation@mail.com" | "hello123"   | "hello123"     |
+      | fullName             | gender   | email                 | password   | confirmPass |
+      | "Automation Account" | "Female" | "automation@mail.com" | "hello123" | "hello123"  |

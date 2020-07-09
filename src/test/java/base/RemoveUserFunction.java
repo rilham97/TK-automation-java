@@ -1,8 +1,13 @@
 package base;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class RemoveUserFunction extends BaseDriver {
     MainFunction mainFunc = new MainFunction();
     LoginFunction loginFunction = new LoginFunction();
+    Statement stmt = null;
 
     String hamburger_btn = "//*[@text='Open navigation menu']";
     String myAccount = "//*[@text='My Account']";
@@ -32,6 +37,14 @@ public class RemoveUserFunction extends BaseDriver {
 
     public void checkIncorrectEmailPassword(){
         mainFunc.verifyEl(popupIncorrectEmailPass);
+    }
+
+    public void setActiveDeletedUser() throws SQLException, ClassNotFoundException {
+        Connection con = mainFunc.setupDB();
+        stmt = con.createStatement();
+        stmt.execute("UPDATE users SET data_state = 'ACTIVE' WHERE user_id = 481;");
+        stmt.execute("UPDATE profile SET data_state = 'ACTIVE' WHERE user_id = 481;");
+        con.close();
     }
 
 }

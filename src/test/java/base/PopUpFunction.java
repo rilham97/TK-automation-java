@@ -10,15 +10,15 @@ import io.cucumber.java.it.Date;
 public class PopUpFunction extends BaseDriver {
 	MainFunction mainFunc = new MainFunction();
 	// Confirmation	
-	String confirmTittle = "//*[@text='Confirmation']";
-	String yesBtn = "//*[@text='Yes']";
-	String noBtn = "//*[@text='No']";
-	String okBtn = "//*[@text='OK']";
-	String cancelBtn = "//*[@text='CANCEL']";
-
+	private String confirmTittle = "//*[@text='Confirmation']";
+	private String yesBtn = "//*[@text='Yes']";
+	private String noBtn = "//*[@text='No']";
+	private String okBtn = "//*[@text='OK']";
+	private String cancelBtn = "//*[@text='CANCEL']";
 	// Internet Connection
-	String disconnectNotif = "//*[@text=['There is no internet connection']";
-
+	private String disconnectNotif = "//*[@text='There is no internet connection']";
+	// Password Update
+	private String passwordUpdateNotif = "//*[@text='Your password already updated']";
 	// Date PopUp	
 	private static String yearBtn;
 
@@ -54,6 +54,11 @@ public class PopUpFunction extends BaseDriver {
 		mainFunc.scrollTo(year);
 		mainFunc.click("//*[@text='"+year+"']");
 		clickOk();
+	}
+	
+	public void successUpdatePasswordScreen() {
+		mainFunc.verifyEl(passwordUpdateNotif);
+		mainFunc.verifyEl(okBtn);
 	}
 	
 }

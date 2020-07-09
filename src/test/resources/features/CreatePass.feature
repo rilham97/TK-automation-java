@@ -2,29 +2,30 @@ Feature: User can create password when register using google
 
   Scenario Outline: User create password with mandatory field
     Given User already sign in using google account
-    When User tap hamburger button on home screen
-    And Tap My account button
-    And Fill pasword form with <password> and confirm password form with <confirm_password>
+    When User click hamburger button
+    And User click on my account menu
+    And Fill password form with <password>
+    And Confirm password form with <confirmPass>
     And Tap create password button
     And Tap Ok button on popup confirmation
     Then Success notification about password has created will be dispalyed
 
     Examples: 
-			|password  |confirm_password |
-			|"R3st@mu" |"R3st@mu"				 |
+			|password  |confirmPass |
+			|"R3st@mu" |"R3st@mu"	  |
 			
 			
 	Scenario Outline: User create password with blank data
     Given User already sign in using google account
-		When User tap hamburger button on home screen
-    And Tap My account button
-    And Fill pasword form with <password> and confirm password form with <confirm_password>
+		When User click hamburger button
+    And User click on my account menu
+    And Fill password form with <password>
+    And Confirm password form with <confirmPass>
     And Tap create password button
     And Tap Ok button on popup confirmation
-    Then Success notification about password has created will be dispalyed
+    Then Failed notification will be dispalyed  
 
     Examples: 
-			|password  |confirm_password |
-			|"R3st@mu" |"R3st@mu"				 |
-			
+			|password |confirmPass | message        |
+			|"" 			|""				 	 |"Please fill "	|
 		

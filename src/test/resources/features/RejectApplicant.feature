@@ -1,8 +1,5 @@
 #reject applicant
-
-
 Feature: Reject Applicant
-
 
   Scenario: Reject Applicant
     Given User login and in the home screen
@@ -11,4 +8,4 @@ Feature: Reject Applicant
     When User click on the first event
     And User click on button Reject
     And User confirm the rejection
-  	Then Applicant is rejected
+    Then Applicant is rejected

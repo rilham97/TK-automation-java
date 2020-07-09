@@ -3,31 +3,37 @@ package base;
 public class LoginFunction extends BaseDriver {
 	MainFunction mainFunc = new MainFunction();
 	
-	String Email_form = "//android.view.View/android.widget.EditText[1]";
-	String Password_form = "//android.view.View/android.widget.EditText[2]";
-	String Login_btn = "//*[@text='LOGIN']";
-	String hamburger_btn = "//*[@text='Open navigation menu']";
-	String filter_btn = "//*[@text='filter']";
-	String home_btn ="//android.view.View[3]/android.view.View[1]";
-	String search_btn = "//android.view.View[3]/android.view.View[2]";
-	String notif_btn = "//android.view.View[3]/android.view.View[3]";
+	String emailForm = "//android.view.View/android.widget.EditText[1]";
+	String passwordform = "//android.view.View/android.widget.EditText[2]";
+	String loginBtn = "//*[@text='LOGIN']";
+	String googleBtn = "//*[@text='GOOGLE']";
+	String hamburgerBtn = "//*[@text='Open navigation menu']";
+	String filterBtn = "//*[@text='filter']";
+	String homeBtn ="//android.view.View[3]/android.view.View[1]";
+	String searchBtn = "//android.view.View[3]/android.view.View[2]";
+	String notifBtn = "//android.view.View[3]/android.view.View[3]";
 	
 	public void verifyLoginPage() {		
-		mainFunc.verifyEl(Email_form);
-		mainFunc.verifyEl(Password_form);
-		mainFunc.verifyEl(Login_btn);
+		mainFunc.verifyEl(emailForm);
+		mainFunc.verifyEl(passwordform);
+		mainFunc.verifyEl(loginBtn);
+		mainFunc.verifyEl(googleBtn);
 	}
 
 	public void inputEmail(String email) throws InterruptedException {
-		mainFunc.input(Email_form, email);
+		mainFunc.input(emailForm, email);
 	}
 	
 	public void inputPassword(String password) throws InterruptedException {
-		mainFunc.input(Password_form, password);
+		mainFunc.input(passwordform, password);
 	}
 	
 	public void pressLogin() {
-		mainFunc.click(Login_btn);
+		mainFunc.click(loginBtn);
+	}
+	
+	public void pressGoogle() {
+		mainFunc.click(googleBtn);
 	}
 	
 	public void warningMessage(String message) {
@@ -36,11 +42,11 @@ public class LoginFunction extends BaseDriver {
 	}
 	
 	public void verifyHomePage() {
-		mainFunc.waitElement(hamburger_btn);
-		mainFunc.verifyEl(filter_btn);
-		mainFunc.verifyEl(home_btn);
-		mainFunc.verifyEl(search_btn);
-		mainFunc.verifyEl(notif_btn);
+		mainFunc.verifyEl(hamburgerBtn);
+		mainFunc.verifyEl(filterBtn);
+		mainFunc.verifyEl(homeBtn);
+		mainFunc.verifyEl(searchBtn);
+		mainFunc.verifyEl(notifBtn);
 	}
 	
 	public void welcome() {
@@ -48,26 +54,3 @@ public class LoginFunction extends BaseDriver {
 		mainFunc.verifyEl(welcome_message);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
