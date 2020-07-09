@@ -1,10 +1,14 @@
 package stepsDef;
 
+import java.sql.SQLException;
+
 import base.LoginFunction;
 import base.RemoveUserFunction;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.sql.SQLException;
 
 public class RemoveUserStep {
     LoginFunction loginFunction = new LoginFunction();
@@ -45,12 +49,13 @@ public class RemoveUserStep {
     }
 
     @Then("User can't login with the account that already removed")
-    public void user_can_t_login_with_the_account_that_already_removed() throws InterruptedException {
+    public void user_can_t_login_with_the_account_that_already_removed() throws InterruptedException, SQLException, ClassNotFoundException {
         loginFunction.verifyLoginPage();
         loginFunction.inputEmail("remove@gmail.com");
         loginFunction.inputPassword("R3move!");
         loginFunction.pressLogin();
         removeUserFunction.checkIncorrectEmailPassword();
+        removeUserFunction.setActiveDeletedUser();
     }
 
 }
