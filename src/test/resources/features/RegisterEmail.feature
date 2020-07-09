@@ -16,7 +16,7 @@ Feature: Register using email
 
     Examples: 
       | fullName             | gender   | email                 | password  | confirmPass |
-      | "Automation Account" | "Female" | "automation4@mail.com" | "Test123!"| "Test123!"  |
+      | "Automation Account" | "Female" | "automation5@mail.com" | "Test123!"| "Test123!"  |
 
   Scenario Outline: Register using invalid email format
     Given User has accessed Create Account page
