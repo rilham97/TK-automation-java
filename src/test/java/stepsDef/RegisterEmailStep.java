@@ -61,6 +61,10 @@ public class RegisterEmailStep {
 	public void tap_Create_Account_password() {
 		register.clickCreateAcc();
 	}
+	@When("Tap OK button")
+	public void tap_OK_button() {
+		popUp.clickOk();
+	}
 	
 	@When("Skip fill the additional info form")
 	public void skip_fill_the_additional_info_form() {
