@@ -36,7 +36,7 @@ public class LoginFunction extends BaseDriver {
 	}
 	
 	public void verifyHomePage() {
-		mainFunc.verifyEl(hamburger_btn);
+		mainFunc.waitElement(hamburger_btn);
 		mainFunc.verifyEl(filter_btn);
 		mainFunc.verifyEl(home_btn);
 		mainFunc.verifyEl(search_btn);
