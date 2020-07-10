@@ -79,7 +79,6 @@ public class MainFunction extends BaseDriver {
 		//Press long
 		MobileElement form = driver.findElementByXPath(element);
 		new TouchAction(driver).longPress(longPressOptions().withElement(element(form)).withDuration(Duration.ofMillis(1000))).release().perform();
-
 		//Choose select all
 		String select_all = "//*[@text='SELECT ALL']";
 		click(select_all);
