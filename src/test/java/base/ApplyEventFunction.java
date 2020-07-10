@@ -39,7 +39,7 @@ public class ApplyEventFunction extends BaseDriver {
     public void setDataStateApplicantsToDeleted() throws SQLException, ClassNotFoundException {
         Connection con = mainFunc.setupDB();
         stmt = con.createStatement();
-        stmt.execute("UPDATE applicants SET data_state = 'DELETED' WHERE user_id = 255;");
+        stmt.execute("UPDATE applicants SET data_state = 'DELETED' WHERE user_id = 490;");
         con.close();
     }
 
