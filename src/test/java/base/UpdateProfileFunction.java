@@ -14,6 +14,8 @@ public class UpdateProfileFunction extends BaseDriver{
 	private String editProfileBtn = "//*[@text='EDIT PROFILE']";
 	private String photoBtn = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.widget.Button[1]";
 	private String galery = "//*[@text='Choose from Gallery']";
+	private String downloadsBtn = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.TextView";
+	private String image = "//*[@text='image_automation.jpg']";
 	private String cityForm = "//*[contains(@text, 'City')]";
 	private String aboutMeForm = "//*[contains(@text, 'About Me')]";
 	private String interestForm = "//*[contains(@text, 'Interest')]";
@@ -25,6 +27,7 @@ public class UpdateProfileFunction extends BaseDriver{
 	}
 
 	public void clickEditProfile() {
+		mainFunc.scrollTo("EDIT");
 		mainFunc.click(editProfileBtn);
 	}
 
@@ -58,12 +61,13 @@ public class UpdateProfileFunction extends BaseDriver{
 		mainFunc.verifyEl(updateSnackBar);
 	}
 
-	public void selectImage(String pathFile) throws IOException {
+	public void selectImage(String pathFile) throws IOException, InterruptedException {
 		mainFunc.pushFile(pathFile);
 		mainFunc.click(photoBtn);
 		mainFunc.click(galery);
-		TouchAction touchAction = new TouchAction(driver);
-		touchAction.tap(PointOption.point(250, 510)).perform();
-		driver.findElementByAccessibilityId("Search").click();
+		driver.findElementByAccessibilityId("Show roots").click();
+		Thread.sleep(2000);
+		mainFunc.click(downloadsBtn);
+		mainFunc.click(image);
 	}
 }
