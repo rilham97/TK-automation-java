@@ -1,15 +1,29 @@
 package stepsDef;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
+import base.LoginFunction;
 import base.MainFunction;
 import base.UpdateProfileFunction;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class UpdateProfileStep {
 	UpdateProfileFunction UpdateProfileFunction = new UpdateProfileFunction();
 	MainFunction mainFunction = new MainFunction();
+	LoginFunction login = new LoginFunction();
+	
+	@Given("User has access the home screen")
+	public void user_has_access_the_home_screen(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
+	    List<Map<String, String>> list = dataTable.asMaps(String.class, String.class);
+	    login.verifyLoginPage();
+	    login.inputEmail(list.get(0).get("email"));
+	    login.inputPassword(list.get(0).get("password"));
+	    login.pressLogin();
+	}
 	
 	@When("Tab My Profile button")
 	public void tab_My_Profile_button() {
@@ -21,8 +35,8 @@ public class UpdateProfileStep {
 		UpdateProfileFunction.clickEditProfile();
 	}
 
-	@When("Choose photo {string} from galery")
-	public void choose_photo_from_galery(String pathFile) throws IOException {
+	@When("Choose photo {string} from gallery")
+	public void choose_photo_from_gallery(String pathFile) throws IOException, InterruptedException {
 		UpdateProfileFunction.selectImage(pathFile);
 
 	}
