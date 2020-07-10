@@ -1,0 +1,46 @@
+package base;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class ApplyEventFunction extends BaseDriver {
+    MainFunction mainFunc = new MainFunction();
+    Statement stmt = null;
+
+    String searchIcon = "//android.view.View/android.view.View[3]/android.view.View[2]";
+    String theFirstEventBox = "//android.view.View/android.view.View[2]/android.view.View/android.view.View[1]/android.view.View";
+    String applyToEventBtn = "//android.view.View[2]/android.view.View/android.view.View/android.widget.Button";
+    String okBtn = "//*[@text='OK']";
+    String applyToEvent = "Apply to Event";
+    String cancelApplication = "Cancel Application";
+
+    public void clickSearchIcon() {
+        mainFunc.click(searchIcon);
+    }
+
+    public void clickEventBox() {
+        mainFunc.click(theFirstEventBox);
+    }
+
+    public void clickApplyToEventBtn() {
+        mainFunc.scrollUntilFindText(applyToEvent);
+        mainFunc.click(applyToEventBtn);
+    }
+
+    public void clickOkBtn(){
+        mainFunc.click(okBtn);
+    }
+
+    public void verifyCancelApplicationButton(){
+        mainFunc.scrollUntilFindText(cancelApplication);
+    }
+
+    public void setDataStateApplicantsToDeleted() throws SQLException, ClassNotFoundException {
+        Connection con = mainFunc.setupDB();
+        stmt = con.createStatement();
+        stmt.execute("UPDATE applicants SET data_state = 'DELETED' WHERE user_id = 255;");
+        con.close();
+    }
+
+}
