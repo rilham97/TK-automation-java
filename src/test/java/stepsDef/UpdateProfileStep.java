@@ -64,5 +64,6 @@ public class UpdateProfileStep {
 	@Then("User profile is changed")
 	public void user_profile_is_changed() {
 		UpdateProfileFunction.verifySnackBar();
+		UpdateProfileFunction.verifyUpdate();
 	}
 }

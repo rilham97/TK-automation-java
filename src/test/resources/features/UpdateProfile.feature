@@ -2,7 +2,7 @@ Feature: Update Profile
 
   Scenario Outline: User update profile with valid credential
     Given User has access the home screen
-      | email          | password |
+      | email           | password |
       | dummy5@mail.com | R3st@mu  |
     When User click hamburger button
     And Tab My Profile button
@@ -13,6 +13,7 @@ Feature: Update Profile
     And Fill <interest> in form Interest
     And Click button save
     Then User profile is changed
+
     Examples: 
       | path            | city    | about_me         | interest  |
       | "img/radit.jpg" | "Ngawi" | "Automated Edit" | "Taichan" |
