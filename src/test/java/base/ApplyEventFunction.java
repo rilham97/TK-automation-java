@@ -13,7 +13,6 @@ public class ApplyEventFunction extends BaseDriver {
     String applyToEventBtn = "//android.view.View[2]/android.view.View/android.view.View/android.widget.Button";
     String okBtn = "//*[@text='OK']";
     String applyToEvent = "Apply to Event";
-    String cancelApplication = "Cancel Applications";
     String widgetEvent = "//android.view.View/android.view.View[2]/android.view.View/android.view.View";
     String messageSuccessApply = "You have applied to this event";
 
