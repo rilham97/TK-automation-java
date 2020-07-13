@@ -8,8 +8,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import java.sql.SQLException;
-
 public class RemoveUserStep {
     LoginFunction loginFunction = new LoginFunction();
     RemoveUserFunction removeUserFunction = new RemoveUserFunction();

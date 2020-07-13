@@ -13,7 +13,8 @@ public class ApplyEventFunction extends BaseDriver {
     String applyToEventBtn = "//android.view.View[2]/android.view.View/android.view.View/android.widget.Button";
     String okBtn = "//*[@text='OK']";
     String applyToEvent = "Apply to Event";
-    String cancelApplication = "Cancel Application";
+    String widgetEvent = "//android.view.View/android.view.View[2]/android.view.View/android.view.View";
+    String messageSuccessApply = "You have applied to this event";
 
     public void clickSearchIcon() {
         mainFunc.click(searchIcon);
@@ -32,8 +33,8 @@ public class ApplyEventFunction extends BaseDriver {
         mainFunc.click(okBtn);
     }
 
-    public void verifyCancelApplicationButton(){
-        mainFunc.scrollUntilFindText(cancelApplication);
+    public void verifySuccessApplyMessage(){
+        mainFunc.assertText(widgetEvent, messageSuccessApply);
     }
 
     public void setDataStateApplicantsToDeleted() throws SQLException, ClassNotFoundException {
