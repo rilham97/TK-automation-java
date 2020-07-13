@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
+import utilities.DBCall;
 
 public class UpdateProfileFunction extends BaseDriver{
 	MainFunction mainFunc = new MainFunction();
@@ -88,8 +89,15 @@ public class UpdateProfileFunction extends BaseDriver{
 		driver.findElementByAccessibilityId("Show roots").click();
 		Thread.sleep(2000);
 		mainFunc.click(folderImageBtn);
-		//mainFunc.click(folderAutomationBtn);
-		mainFunc.click(listView);
+		
+		if(driver.findElements(By.xpath("//android.widget.TextView[@content-desc=\"List view\"]")).size() != 0){
+			mainFunc.click(listView);
+		}
 		mainFunc.click(image);
+	}
+	
+	public void resetProile() {
+		String sqlQuery = "UPDATE profile SET city = 'Magelang, Jawa Tengah', about_me = 'Captain America', interest = 'Peggy Carter' WHERE last_modified_by = 'dummy5@mail.com';";
+		DBCall.executeSQLQuery(sqlQuery);
 	}
 }

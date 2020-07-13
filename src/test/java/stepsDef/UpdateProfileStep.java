@@ -65,5 +65,6 @@ public class UpdateProfileStep {
 	public void user_profile_is_changed() {
 		UpdateProfileFunction.verifySnackBar();
 		UpdateProfileFunction.verifyUpdate();
+		UpdateProfileFunction.resetProile();
 	}
 }
