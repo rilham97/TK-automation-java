@@ -12,11 +12,11 @@ Feature: Register using email
     And Tap Create Account password
     And Tap OK button
     And Skip fill the additional info form
-    Then User should be directed to home screen
+    Then User should be directed to home screen using own email <email>
 
     Examples: 
       | fullName             | gender   | email                  | password   | confirmPass |
-      | "Automation Account" | "Female" | "automation4@mail.com" | "Test123!" | "Test123!"  |
+      | "Automation Account 1" | "Female" | "automation@mail.com" | "Test123!" | "Test123!"  |
 
 
   Scenario Outline: Register using invalid email format
