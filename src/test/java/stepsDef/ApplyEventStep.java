@@ -44,7 +44,7 @@ public class ApplyEventStep {
 
     @Then("User successfully apply to event")
     public void user_successfully_apply_to_event() throws SQLException, ClassNotFoundException {
-        applyEventFunction.verifyCancelApplicationButton();
+        applyEventFunction.verifySuccessApplyMessage();
         applyEventFunction.setDataStateApplicantsToDeleted();
     }
 
