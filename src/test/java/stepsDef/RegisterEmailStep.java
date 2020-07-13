@@ -65,6 +65,12 @@ public class RegisterEmailStep {
 	public void OK_button() {
 		popUp.clickOk();
 	}
+	
+	@Then("User should be directed to home screen using own email {string}")
+	public void user_should_be_directed_to_home_screen_using_own_email(String email) {
+	    login.verifyHomePage();
+	    register.deleteUser(email);
+	}
 
 	@When("Skip fill the additional info form")
 	public void skip_fill_the_additional_info_form() {

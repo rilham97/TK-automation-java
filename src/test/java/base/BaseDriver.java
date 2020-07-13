@@ -4,17 +4,12 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import utilities.PropertiesReader;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import utilities.PropertiesReader;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class BaseDriver {
 	public static AndroidDriver<MobileElement> driver;
-	public WebDriverWait wait;
 	
 	public void setUp() {	
 		System.out.println("Turn On the driver");
@@ -48,7 +43,7 @@ public class BaseDriver {
 		caps.setCapability("resetKeyboard", false);
 		//set driver
 		try {
-			driver = new AndroidDriver<MobileElement>(new URL(PropertiesReader.readProperty("appiumService")),caps);
+			driver = new AndroidDriver<>(new URL(PropertiesReader.readProperty("appiumService")), caps);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
