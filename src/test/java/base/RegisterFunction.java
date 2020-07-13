@@ -1,5 +1,7 @@
 package base;
 
+import utilities.DBCall;
+
 public class RegisterFunction extends BaseDriver{
 	MainFunction mainFunc = new MainFunction();
 	PopUpFunction popUp = new PopUpFunction();
@@ -27,7 +29,7 @@ public class RegisterFunction extends BaseDriver{
 	private String warnConfrimPass = "//*[@text='Your passwords are not match']";
 
 	public void verifyCreateAccountPage() {
-		mainFunc.verifyEl(createBtn);
+		//mainFunc.verifyEl(createBtn);
 		mainFunc.verifyEl(fullNameForm);
 		mainFunc.verifyEl(dobForm);
 		mainFunc.verifyEl(genderBtn);
@@ -86,6 +88,12 @@ public class RegisterFunction extends BaseDriver{
 		mainFunc.click(skipBtn);
 	}
 	
+	public void deleteUser(String email) {
+		String sqlQuery =  "UPDATE profile SET data_state = 'DELETED' WHERE full_name = 'Automation Account 1';"
+				+ "UPDATE users SET data_state = 'DELETED' WHERE email = '"+email+"';";
+		DBCall.executeSQLQuery(sqlQuery);
+	}
+	
 	public void warnEmailFormat() {
 		mainFunc.waitElement(warnEmail);
 	}
@@ -95,4 +103,5 @@ public class RegisterFunction extends BaseDriver{
 	public void warnConfirmPassFormat() {
 		mainFunc.verifyEl(warnConfrimPass);
 	}
+
 }

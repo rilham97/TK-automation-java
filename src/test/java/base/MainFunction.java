@@ -94,7 +94,7 @@ public class MainFunction extends BaseDriver {
 	}
 
 	public void pushFile(String pathFile) throws IOException {
-		driver.pushFile("/storage/emulated/0/download/image_automation.jpg", new File(pathFile));
+		driver.pushFile("/storage/emulated/0/automation/image_automation.jpg", new File(pathFile));
 	}
 
 	public void scrollUntilFindText(String text){
