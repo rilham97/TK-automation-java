@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class LogoutFunction extends BaseDriver {
 
 	MainFunction mainFunc = new MainFunction();
+	String logoutBtn = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]";
 	String yesConfirmation = "//*[@text='Yes']";
 
 	public void clickDrawerMenu() throws InterruptedException {
@@ -19,9 +20,7 @@ public class LogoutFunction extends BaseDriver {
 	}
 
 	public void clickLogout(){
-		TouchAction touchAction = new TouchAction(driver);
-		touchAction.tap(PointOption.point(244, 2004)).perform();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		mainFunc.click(logoutBtn);
 	}
 
 	public void clickYesOnPopupConfirmation(){
