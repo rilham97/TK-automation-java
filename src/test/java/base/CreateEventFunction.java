@@ -6,6 +6,8 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.concurrent.TimeUnit;
+
 public class CreateEventFunction extends BaseDriver {
     MainFunction mainFunc = new MainFunction();
     Actions action = new Actions(driver);
@@ -14,7 +16,8 @@ public class CreateEventFunction extends BaseDriver {
     String title = "//*[@text='Event Title']";
     String cityPath = "//*[@text='City']";
     String eventDate = "//*[@text='Event Date']";
-    String calender = "//*[@text='15, Wednesday, July 15, 2020']";
+    String nextMonth = "//*[contains(@text, 'Next month')]";
+    String date = "//*[contains(@text, '16')]";
     String okCalender = "//*[@text='OK']";
     String startTime = "//*[@text='Start Time']";
     String starHour = "//*[@text='7']";
@@ -24,13 +27,15 @@ public class CreateEventFunction extends BaseDriver {
     String okTime = "//android.widget.Button[2]";
     String endTime = "//*[@text='End Time']";
     String endHour = "//*[@text='8']";
+    String t19 = "//*[@text='19']";
+    String t20 = "//*[@text='20']";
     String seekBarPath = "//android.view.View[4]";
     String gender = "//android.view.View[2]/android.view.View/android.view.View/android.view.View/android.widget.Button[1]";
     String both = "//*[@text='Both']";
     String additionalInfo = "//*[@text='Additional Info']";
     String hamburger_btn = "//*[@text='Open navigation menu']";
     String filter_btn = "//*[@text='filter']";
-    String home_btn ="//android.view.View[3]/android.view.View[1]";
+    String home_btn = "//android.view.View[3]/android.view.View[1]";
     String search_btn = "//android.view.View[3]/android.view.View[2]";
     String notif_btn = "//android.view.View[3]/android.view.View[3]";
     String createEventButton = "//*[@text='CREATE EVENT']";
@@ -64,8 +69,10 @@ public class CreateEventFunction extends BaseDriver {
     }
 
     public void inputEventDate() throws InterruptedException {
+
         mainFunc.click(eventDate);
-        mainFunc.click(calender);
+        mainFunc.click(nextMonth);
+        mainFunc.click(date);
         mainFunc.click(okCalender);
     }
 
@@ -83,20 +90,35 @@ public class CreateEventFunction extends BaseDriver {
 
     public void inputStartTime() {
         mainFunc.click(startTime);
-        mainFunc.click(starHour);
-        mainFunc.click(headerMinutes);
-        mainFunc.click(minutes);
-        mainFunc.click(pm);
-        mainFunc.click(okTime);
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        if (driver.findElements(By.xpath(pm)).isEmpty()) {
+            mainFunc.click(t19);
+            mainFunc.click(minutes);
+            mainFunc.click(okTime);
+        } else {
+            mainFunc.click(starHour);
+            mainFunc.click(headerMinutes);
+            mainFunc.click(minutes);
+            mainFunc.click(pm);
+            mainFunc.click(okTime);
+        }
     }
 
     public void inputEndTime() {
         mainFunc.click(endTime);
-        mainFunc.click(endHour);
-        mainFunc.click(headerMinutes);
-        mainFunc.click(minutes);
-        mainFunc.click(pm);
-        mainFunc.click(okTime);
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        if (driver.findElements(By.xpath(pm)).isEmpty()) {
+            mainFunc.click(t20);
+            mainFunc.click(minutes);
+            mainFunc.click(okTime);
+        } else {
+            mainFunc.click(endHour);
+            mainFunc.click(headerMinutes);
+            mainFunc.click(minutes);
+            mainFunc.click(pm);
+            mainFunc.click(okTime);
+        }
+
     }
 
     public void selectGender() {
@@ -116,11 +138,11 @@ public class CreateEventFunction extends BaseDriver {
         mainFunc.verifyEl(notif_btn);
     }
 
-    public void clickCreateEventButton(){
+    public void clickCreateEventButton() {
         mainFunc.click(createEventButton);
     }
 
-    public void verifyEventIsCreated(){
+    public void verifyEventIsCreated() {
         mainFunc.verifyEl(snackBarEventCreated);
     }
 
