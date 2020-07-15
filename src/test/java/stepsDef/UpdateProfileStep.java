@@ -3,7 +3,6 @@ package stepsDef;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-
 import base.LoginFunction;
 import base.MainFunction;
 import base.UpdateProfileFunction;
@@ -13,15 +12,19 @@ import io.cucumber.java.en.When;
 
 public class UpdateProfileStep {
 	UpdateProfileFunction UpdateProfileFunction = new UpdateProfileFunction();
-	MainFunction mainFunction = new MainFunction();
 	LoginFunction login = new LoginFunction();
+
+	String email;
+	String password;
 	
 	@Given("User has access the home screen")
 	public void user_has_access_the_home_screen(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
 	    List<Map<String, String>> list = dataTable.asMaps(String.class, String.class);
-	    login.verifyLoginPage();
-	    login.inputEmail(list.get(0).get("email"));
-	    login.inputPassword(list.get(0).get("password"));
+	    email = list.get(0).get("email");
+	    password = list.get(0).get("password");
+		login.verifyLoginPage();
+	    login.inputEmail(email);
+	    login.inputPassword(password);
 	    login.pressLogin();
 	}
 	
@@ -65,6 +68,6 @@ public class UpdateProfileStep {
 	public void user_profile_is_changed() {
 		UpdateProfileFunction.verifySnackBar();
 		UpdateProfileFunction.verifyUpdate();
-		UpdateProfileFunction.resetProile();
+		UpdateProfileFunction.resetProfile(email,password);
 	}
 }

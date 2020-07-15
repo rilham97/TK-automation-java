@@ -1,24 +1,17 @@
 package base;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
-import utilities.DBCall;
+import utilities.APIcall;
 
 public class UpdateProfileFunction extends BaseDriver{
 	MainFunction mainFunc = new MainFunction();
-	PopUpFunction popUp = new PopUpFunction();
 
-	private String myProfileBtn = "//*[@text='My Profile']";
 	private String editProfileBtn = "//*[@text='EDIT PROFILE']";
 	private String photoBtn = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.widget.Button[1]";
 	private String galery = "//*[@text='Choose from Gallery']";
-	private String folderImageBtn = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[1]";
-	private String folderAutomationBtn = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/com.google.android.material.card.MaterialCardView/android.widget.FrameLayout/android.widget.LinearLayout";
+	private String hamburgerBtn = "Show roots";
+	private String folderImageBtn = "//*[@text='Recent']";
 	private String image = "//*[@text='image_automation.jpg']";
 	private String listView = "//android.widget.TextView[@content-desc=\"List view\"]";
 	private String cityForm = "//*[contains(@text, 'City')]";
@@ -26,12 +19,16 @@ public class UpdateProfileFunction extends BaseDriver{
 	private String interestForm = "//*[contains(@text, 'Interest')]";
 	private String saveBtn = "//*[@text='SAVE']";
 	private String updateSnackBar = "//*[@text='Your profile is updated']";
-	
 	private String textCity;
 	private String textAboutMe;
 	private String textInterest;
+	private String pathImageReset = "img/chris.jpg";
+	private String cityReset = "Magelang, Jawa Tengah";
+	private String aboutMeReset = "Captain America";
+	private String interestReset = "Peggy Carter";
 
 	public void clickMyProfile() {
+		String myProfileBtn = "//*[@text='My Profile']";
 		mainFunc.click(myProfileBtn);
 	}
 
@@ -71,7 +68,8 @@ public class UpdateProfileFunction extends BaseDriver{
 	}
 	
 	public void verifyUpdate() {
-		mainFunc.scrollTo("EDIT");
+		mainFunc.scrollTo("EDIT PROFILE");
+		mainFunc.waitElementInvisible(updateSnackBar);
 		mainFunc.click(editProfileBtn);
 		mainFunc.assertText(cityForm, textCity);
 		mainFunc.assertText(aboutMeForm, textAboutMe);
@@ -86,18 +84,17 @@ public class UpdateProfileFunction extends BaseDriver{
 		mainFunc.pushFile(pathFile);
 		mainFunc.click(photoBtn);
 		mainFunc.click(galery);
-		driver.findElementByAccessibilityId("Show roots").click();
-		Thread.sleep(2000);
-		mainFunc.click(folderImageBtn);
-		
-		if(driver.findElements(By.xpath("//android.widget.TextView[@content-desc=\"List view\"]")).size() != 0){
+		driver.findElementByAccessibilityId(hamburgerBtn).click();
+		Thread.sleep(1000);
+		mainFunc.click(folderImageBtn);		
+		if(driver.findElements(By.xpath(listView)).size() != 0){
 			mainFunc.click(listView);
 		}
 		mainFunc.click(image);
 	}
 	
-	public void resetProile() {
-		String sqlQuery = "UPDATE profile SET city = 'Magelang, Jawa Tengah', about_me = 'Captain America', interest = 'Peggy Carter' WHERE last_modified_by = 'dummy5@mail.com';";
-		DBCall.executeSQLQuery(sqlQuery);
+	public void resetProfile(String email, String password) {
+		APIcall.login(email,password);
+		APIcall.updateProfile(pathImageReset,cityReset,aboutMeReset,interestReset);
 	}
 }

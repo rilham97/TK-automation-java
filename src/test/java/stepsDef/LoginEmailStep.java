@@ -56,8 +56,8 @@ public class LoginEmailStep {
 		login.verifyLoginPage();
 	}
 
-	@And("User should recieve error message {string} on login screen")
-	public void user_should_recieve_error_message_on_login_screen(String string) {
+	@And("User should receive error message {string} on login screen")
+	public void user_should_receive_error_message_on_login_screen(String string) {
 	    login.warningMessage(string);
 	}
 	
