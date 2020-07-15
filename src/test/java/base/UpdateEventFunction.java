@@ -46,10 +46,9 @@ public class UpdateEventFunction extends BaseDriver{
 	String T13 = "//*[@text='1']";
 	String T23 = "//*[@text='23']";
 	String T14 = "//*[@text='14']";
-//	String Year="//*[@text='2020']";
 	String NextMonth="//*[contains(@text,'Next month')]";
 	String date15="//*[contains(@text,'15') and (@clickable='true') and (@selected ='false')]";
-	String Y2021="//*[@text='2021']";
+	
 
 	String SaveEvent="//*[@text='SAVE']"; 
 	String Male="//*[@text='Male']"; 
