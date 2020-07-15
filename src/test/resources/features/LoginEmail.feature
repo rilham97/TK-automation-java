@@ -21,7 +21,7 @@ Feature: Login to Application
     And User fill password form with <password>
     And User click on Login button
     Then User should failed to home screen
-    And User should recieve error message <message> on login screen
+    And User should receive error message <message> on login screen
 
     Examples: 
       | email              | password  | message                    |
