@@ -44,8 +44,11 @@ public class UpdateEventFunction extends BaseDriver{
 	String XeventstartTime = "//hierarchy/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.widget.Button[1]";
 	String T12 = "//*[@text='12']";
 	String T13 = "//*[@text='1']";
-	String Year="//*[@text='2020']";
-	String Y2021="//*[@text='2021']";
+	String T23 = "//*[@text='23']";
+	String T14 = "//*[@text='14']";
+	String NextMonth="//*[contains(@text,'Next month')]";
+	String date15="//*[contains(@text,'15') and (@clickable='true') and (@selected ='false')]";
+	
 
 	String SaveEvent="//*[@text='SAVE']"; 
 	String Male="//*[@text='Male']"; 
@@ -108,8 +111,10 @@ public class UpdateEventFunction extends BaseDriver{
 	 public void editEventDate() throws InterruptedException {
 	    mainFunc.click(XEventDate);
 	    mainFunc.click(eventDate);
-	    mainFunc.click(Year);
-	    mainFunc.click(Y2021);
+	    for (int i = 0; i < 3; i++) {
+	    	mainFunc.click(NextMonth);
+	    	}
+	    mainFunc.click(date15);
 	    mainFunc.click(OK);
 		date = driver.findElement((By.xpath(eventDate))).getText();
 	 }
@@ -117,8 +122,14 @@ public class UpdateEventFunction extends BaseDriver{
 	 public void editStartTime() throws InterruptedException {
 	    mainFunc.click(XeventstartTime);
 	    mainFunc.click(eventstartTime);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	    if(driver.findElements(By.xpath(T23)).isEmpty()) {
 	    mainFunc.click(T12);
 	    mainFunc.click(PM);
+	    }
+	    else {
+	    mainFunc.click(T12);	
+	    }
 	    mainFunc.click(OK);
 		startTime= driver.findElement((By.xpath(eventstartTime))).getText();
 	}
@@ -128,8 +139,14 @@ public class UpdateEventFunction extends BaseDriver{
 		if(!driver.findElements(By.xpath(XEventendTime)).isEmpty()) {
 		    mainFunc.click(XEventendTime);
 		    mainFunc.click(eventendTime);
-		    mainFunc.click(T13);
-		    mainFunc.click(PM);
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		    if(driver.findElements(By.xpath(T23)).isEmpty()) {
+			    mainFunc.click(T13);
+			    mainFunc.click(PM);
+			    }
+			    else {
+			    mainFunc.click(T14);	
+			    }
 		    mainFunc.click(OK);
 			}
 		endTime= driver.findElement(By.xpath(eventendTime)).getText();
@@ -161,6 +178,12 @@ public class UpdateEventFunction extends BaseDriver{
 		}
 		
 	 public void editAdditionalInfo() throws InterruptedException {
+		MobileElement AdditionalInfo = driver.findElement((By.xpath(eventaddInfo)));
+		mainFunc.click(eventaddInfo);
+		 int maxAddInfo = AdditionalInfo.getText().length();
+		    if (maxAddInfo > 60){
+				mainFunc.clear(eventaddInfo);
+		    	}
 		mainFunc.input(eventaddInfo, "tambahan");
 		Additional =  driver.findElement(By.xpath(eventaddInfo)).getText();
 		driver.hideKeyboard();
