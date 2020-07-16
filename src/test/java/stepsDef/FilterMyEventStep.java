@@ -29,6 +29,11 @@ public class FilterMyEventStep {
         filterMyEventFunction.clickFilterIcon();
     }
 
+    @When("user click on past tab")
+    public void user_click_on_past_tab() {
+        filterMyEventFunction.clickPastTab();
+    }
+
     @When("click on one of {string} filter")
     public void click_on_one_of_filter(String inputUser) {
         filterMyEventFunction.clickFilterMethod(inputUser);
