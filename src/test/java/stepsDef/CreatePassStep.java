@@ -45,8 +45,8 @@ public class CreatePassStep {
 		popUpFunction.clickOk();
 	}
 
-	@Then("Success notification about password has created will be dispalyed")
-	public void success_notification_about_password_has_created_will_be_dispalyed(){
+	@Then("Success notification about password has created will be displayed")
+	public void success_notification_about_password_has_created_will_be_displayed(){
 		createPassFunction.successUpdatePasswordScreen();
 		createPassFunction.resetGmailData(googleEmail);
 	}
