@@ -32,11 +32,11 @@ public class DBCall {
 	public static void executeSQLQuery(String sqlQuery){
 		Statement stmt = null;
 		try {
-			setUpDB();
+			//setUpDB();
 			stmt = connection.createStatement();
 			int affectedRows = stmt.executeUpdate(sqlQuery);
-			System.out.printf("%d row(s) updated!", affectedRows);
-			tearDownDB();
+			System.out.printf("%d row(s) updated!\n", affectedRows);
+			//tearDownDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -45,7 +45,7 @@ public class DBCall {
 	public static void tearDownDB() {
 		if (connection != null) {
 			try {
-				System.out.println(" Closing Database Connection...");
+				System.out.println("Closing Database Connection...");
 				connection.close();
 			} catch (SQLException ex) {
 				ex.printStackTrace();
