@@ -29,7 +29,7 @@ Feature: Register using email
     And Confirm password form with <confirmPass>
     And Click T&C checkbox
     And Tap Create Account password
-    Then User should recieve error message email on register screen
+    Then User should receive error message email on register screen
 
     Examples: 
       | fullName             | gender   | email        | password   | confirmPass |
@@ -45,7 +45,7 @@ Feature: Register using email
     And Confirm password form with <confirmPass>
     And Click T&C checkbox
     And Tap Create Account password
-    Then User should recieve error message password on register screen
+    Then User should receive error message password on register screen
 
     Examples: 
       | fullName             | gender   | email                 | password   | confirmPass |

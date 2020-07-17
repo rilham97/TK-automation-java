@@ -11,7 +11,6 @@ import io.cucumber.java.en.When;
 public class RegisterEmailStep {	
 	LoginFunction login = new LoginFunction();
 	RegisterFunction register = new RegisterFunction();
-	MainFunction mainFunction = new MainFunction();
 	PopUpFunction popUp = new PopUpFunction();
 
 	@Given("User has accessed Create Account page")
@@ -77,13 +76,13 @@ public class RegisterEmailStep {
 		register.clickSkip();
 	}
 
-	@Then("User should recieve error message email on register screen")
-	public void user_should_recieve_error_message_email_on_register_screen() {
+	@Then("User should receive error message email on register screen")
+	public void user_should_receive_error_message_email_on_register_screen() {
 		register.warnEmailFormat();
 	}
 
-	@Then("User should recieve error message password on register screen")
-	public void user_should_recieve_error_message_password_on_register_screen() {
+	@Then("User should receive error message password on register screen")
+	public void user_should_receive_error_message_password_on_register_screen() {
 		register.warnPassFormat();
 	}
 }

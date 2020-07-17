@@ -7,7 +7,7 @@ Feature: User can create password when register using google
     And Fill password form with <password> and confirm password form with <confirmPass>
     And Tap create password button
     And Tap Ok button on popup confirmation
-    Then Success notification about password has created will be dispalyed
+    Then Success notification about password has created will be displayed
 
     Examples: 
       | password   | confirmPass |
