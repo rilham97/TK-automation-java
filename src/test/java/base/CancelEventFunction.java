@@ -7,6 +7,8 @@ import java.sql.Statement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.DBCall;
+
 public class CancelEventFunction extends BaseDriver {
 	
 	MainFunction mainFunc = new MainFunction();
@@ -19,6 +21,7 @@ public class CancelEventFunction extends BaseDriver {
 	String ConfirmPopup="//*[@text='Are you sure you want to cancel this event? You cannot undo this action']";
 	String SuccessCancel="//*[@text='You have successfully cancel your event']"; 
 	String Canceled="//*[contains(@text,'You have canceled this event')]";
+	String sqlQuery = "UPDATE event SET cancelled = 'false' WHERE event_id= 327;";
 
 
 	
@@ -37,9 +40,6 @@ public class CancelEventFunction extends BaseDriver {
 	public void verifyCancel() throws InterruptedException, ClassNotFoundException, SQLException {
 		mainFunc.waitElement(SuccessCancel);
 		mainFunc.waitElement(Canceled);
-		Connection con = mainFunc.setupDB();
-		stmt = con.createStatement();	
-		stmt.execute("UPDATE event SET cancelled = 'false' WHERE event_id= 327;");
-		con.close();
+		DBCall.executeSQLQuery(sqlQuery);
 		}
 }

@@ -8,6 +8,8 @@ import java.sql.Statement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utilities.DBCall;
+
 public class RejectApplicantFunction extends BaseDriver{
 	MainFunction mainFunc = new MainFunction();
 	Actions action = new Actions(driver);
@@ -25,8 +27,11 @@ public class RejectApplicantFunction extends BaseDriver{
 
 		String RejectPopup="//*[@text='Are you sure you want to reject this user? You cannot accept this user after you reject them.']"; 
 		String Yes="//*[@text='Yes']"; 
+		String sqlQuery = "UPDATE applicants SET status = 'APPLIED' WHERE id= 282;";
+
 		
 		public void sortEventDesc() throws InterruptedException {
+			DBCall.executeSQLQuery(sqlQuery);
 			mainFunc.click(Filter);
 			mainFunc.click(DESC);
 			}
@@ -43,10 +48,7 @@ public class RejectApplicantFunction extends BaseDriver{
 		
 		public void verifyReject() throws InterruptedException, ClassNotFoundException, SQLException {
 			mainFunc.waitElement(Accept);
-			Connection con = mainFunc.setupDB();
-			stmt = con.createStatement();	
-			stmt.execute("UPDATE applicants SET status = 'APPLIED' WHERE id= 282;");
-			con.close();
+			DBCall.executeSQLQuery(sqlQuery);
 			}
 }
 
