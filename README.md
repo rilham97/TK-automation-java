@@ -74,11 +74,11 @@ Step 3: Add JSON body in the request and send the Request
       // Post the request and check the response
       Response response = request.post("/auth/login");
       
-This web service accepts a JSON body. By this step, we have created our JSON body that needs to be sent. In this step, we will simply add the JSON String to the body of the HTTP Request and make sure that the Content-Type header field has a value of application/json.   
+This web service accepts a JSON body. By this step, we have created our JSON body that needs to be sent. In this step, we will simply add the JSON String to the body of the HTTP Request and make sure that the `Content-Type header` field has a value of `application/json`.   
 
 Step 4: Validate the Response
 
-    	int statusCode = response.getStatusCode();
+	int statusCode = response.getStatusCode();
 	System.out.println(statusCode);
 	Assert.assertEquals(statusCode, 200);
 
@@ -86,8 +86,8 @@ Now that we have sent the Request and received a Response, let us validate Statu
 
 Step 5: Get token value from response body
       
-      //Covert the json become string
-    	String jsonString = response.asString();
+	//Covert the json become string
+	String jsonString = response.asString();
 	token = JsonPath.from(jsonString).get("content");
 
 
