@@ -56,17 +56,17 @@ Step 1: Create a Request pointing to the Service Endpoint
 Step 2: Create a JSON request body which contains all the fields
 			
       JSONObject requestBody = new JSONObject();
-			requestBody.put("email", email);
-			requestBody.put("password", password);
+      requestBody.put("email", email);
+      requestBody.put("password", password);
 			
  
-JSONObject is a class that is present in org.json.simple package. This class is a programmatic representation of a JSON string.  Take a look at the Request JSON above for our test web service, you will notice that there are multiple nodes in the JSON. Each node can be added using the JSONObject.put(String, String) method. 
-Once you have added all the nodes you can get the String representation of JSONObject by calling JSONObject.toJSONString() method.
+**JSONObject** is a class that is present in `org.json.simple package`. This class is a programmatic representation of a **JSON string**.  Take a look at the Request JSON above for our test web service, you will notice that there are multiple nodes in the JSON. Each node can be added using the **JSONObject.put(String, String)** method. 
+Once you have added all the nodes you can get the String representation of JSONObject by calling **JSONObject.toJSONString()** method.
 
 Step 3: Add JSON body in the request and send the Request
 
       // Add a header stating the Request body is a JSON
-     	request.header("Content-Type", "application/json");
+      request.header("Content-Type", "application/json");
       
       // Add the Json to the body of the request
       request.body(requestBody.toJSONString());
@@ -74,16 +74,13 @@ Step 3: Add JSON body in the request and send the Request
       // Post the request and check the response
       Response response = request.post("/auth/login");
       
-This web service accepts a JSON body. By this step, we have created our JSON body that needs to be sent. In this step, we will simply add the JSON String to the body of the HTTP Request and make sure that the Content-Type header field has a value of application/json.
-
-You can put the JSON string in the body using the method called RequestSpecification.body(JsonString). This method lets you updated the content of HTTP Request Body. However, if you call this method multiple times the body will be updated to the latest JSON String.
-    
+This web service accepts a JSON body. By this step, we have created our JSON body that needs to be sent. In this step, we will simply add the JSON String to the body of the HTTP Request and make sure that the Content-Type header field has a value of application/json.   
 
 Step 4: Validate the Response
 
     	int statusCode = response.getStatusCode();
-			System.out.println(statusCode);
-			Assert.assertEquals(statusCode, 200);
+	System.out.println(statusCode);
+	Assert.assertEquals(statusCode, 200);
 
 Now that we have sent the Request and received a Response, let us validate Status Code.
 
@@ -91,7 +88,7 @@ Step 5: Get token value from response body
       
       //Covert the json become string
     	String jsonString = response.asString();
-			token = JsonPath.from(jsonString).get("content");
+	token = JsonPath.from(jsonString).get("content");
 
 
 ### To Do
