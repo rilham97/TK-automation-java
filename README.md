@@ -90,6 +90,11 @@ Step 5: Get token value from response body
 	String jsonString = response.asString();
 	token = JsonPath.from(jsonString).get("content");
 
+More documentaion about Rest assured can be access here:
+
+https://www.toolsqa.com/rest-assured/post-request-using-rest-assured/
+https://www.toolsqa.com/rest-assured/read-json-response-body-using-rest-assured/
+
 
 ### To Do
 1. Screenshoot listener on cucumber report
