@@ -5,7 +5,7 @@ Feature: Rating to Event Creator
 
   Scenario: User give rating to Event Creator that not rated before
     Given User already in the applied screen
-    And click on past tab
+    When click on past tab
     And select the event box
     And click on button rate user
     And click on one of the star
