@@ -2,7 +2,6 @@
 
 Feature: Cancel Event by Event Creator
 
-  
   Scenario: Cancel Event after created
     Given User login and in the home screen
     And User go to My Event Screen
