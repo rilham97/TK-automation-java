@@ -1,5 +1,6 @@
 # new feature
 # Tags: optional
+
 Feature: Create event
 
   Scenario Outline: User create event with valid data
