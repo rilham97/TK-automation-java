@@ -48,3 +48,6 @@ pom.xml.tag
 # Properties file
 *.properties
 
+### Gradle ###
+.gradle
+/build/
