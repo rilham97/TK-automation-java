@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -102,13 +104,22 @@ public class MainFunction extends BaseDriver {
     public void waitElement(String element) {
         WebDriverWait wait = new WebDriverWait(driver, 10000);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(element)));
-
     }
 
     public void waitElementInvisible(String element) {
         WebDriverWait wait = new WebDriverWait(driver, 5);
         Boolean bool = wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(element)));
         System.out.println(bool);
+    }
+
+    public void minimizeApplication() {
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+    }
+
+    public void openNotifications(){
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.openNotifications();
     }
 
     public Connection setupDB() throws ClassNotFoundException, SQLException {
