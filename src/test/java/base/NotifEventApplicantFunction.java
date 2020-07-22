@@ -26,21 +26,28 @@ public class NotifEventApplicantFunction {
 
     public void verifyNotifAccepted() {
         mainFunction.verifyEl(notifAccepted);
+        mainFunction.click(notifAccepted);
     }
 
     public void verifyNotifCanceled() {
         mainFunction.verifyEl(notifCanceled);
+        mainFunction.click(notifCanceled);
     }
 
     public void verifyNotifRejected() {
         mainFunction.verifyEl(notifRejected);
+        mainFunction.click(notifRejected);
     }
 
     public void verifyNotifEventCanceled(){
         mainFunction.verifyEl(notifEventCanceled);
+        mainFunction.click(notifEventCanceled);
     }
 
-    public void verifyNotifEdited(){mainFunction.verifyEl(notifEventEdited);}
+    public void verifyNotifEdited(){
+    	mainFunction.verifyEl(notifEventEdited);
+    	mainFunction.click(notifEventEdited);
+    }
 
     public void acceptApplicant(String email, String password, int applicantId){
         APIcall.login(email,password);

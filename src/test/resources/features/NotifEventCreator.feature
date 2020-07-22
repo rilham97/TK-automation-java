@@ -3,7 +3,7 @@ Feature: Notification for Event Creator
   Scenario: User want to see notification when other user apply to the event
     Given Event Creator has access the home screen
       | email              | password |
-      | resta.mu@gmail.com | R3st@mu  |
+      | creator@mail.com | R3st@mu  |
     When Other user apply to the event
       | email              | password |
       | applicant@mail.com | R3st@mu  |
@@ -14,7 +14,7 @@ Feature: Notification for Event Creator
   Scenario: User want to see notification tray when other user apply to the event and  application doesn't open
     Given Event Creator has access the home screen
       | email              | password |
-      | resta.mu@gmail.com | R3st@mu  |
+      | creator@mail.com | R3st@mu  |
     When The user minimize the application
     And Other user apply to the event
       | email              | password |
@@ -25,7 +25,7 @@ Feature: Notification for Event Creator
   Scenario: User want to see notification when other user cancel application to the event
     Given Event Creator has access the home screen
       | email              | password |
-      | resta.mu@gmail.com | R3st@mu  |
+      | creator@mail.com | R3st@mu  |
     When Other user cancel application to the event
       | email              | password |
       | applicant@mail.com | R3st@mu  |
@@ -36,7 +36,7 @@ Feature: Notification for Event Creator
   Scenario: User want to see notification tray when other user cancel application to the event and application doesn't open
     Given Event Creator has access the home screen
       | email              | password |
-      | resta.mu@gmail.com | R3st@mu  |
+      | creator@mail.com | R3st@mu  |
     When The user minimize the application
     And Other user cancel application to the event
       | email              | password |

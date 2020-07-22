@@ -86,12 +86,12 @@ public class NotifEventCreatorFunction extends BaseDriver {
 		}
 	}
 
-	public void resetApply(int event_id, String email) {
+	public void resetToDelete(int event_id, String email) {
 		String sqlQuery = "UPDATE applicants SET data_state = 'DELETED' WHERE data_state = 'ACTIVE' and event_id = "+event_id+" and created_by = '"+email+"';";
 		DBCall.executeSQLQuery(sqlQuery);
 	}
 	
-	public void resetCancelApplication(int event_id, String email) {
+	public void resetToActive(int event_id, String email) {
 		String sqlQuery = "UPDATE applicants SET data_state = 'ACTIVE' WHERE data_state = 'DELETED' and event_id = "+event_id+" and created_by = '"+email+"';";
 		DBCall.executeSQLQuery(sqlQuery);
 	}

@@ -18,8 +18,8 @@ public class NotifEventApplicantStep {
     String passwordApplicant;
     String emailCreator;
     String passwordCreator;
-    int applicantId = 537;
-    int eventIdCanceled = 431;
+    int applicantId = 545;
+    int eventId = 432;
 
     @Given("Applicant has access the home screen")
     public void applicant_has_access_the_home_screen(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
@@ -99,9 +99,9 @@ public class NotifEventApplicantStep {
     	//Reset the database applicant to applied status first
     	notifEventApplicantFunction.resetToApplied(applicantId);
     	//Send API to cancel the event
-        notifEventApplicantFunction.cancelEvent(emailCreator,passwordCreator,eventIdCanceled);
+        notifEventApplicantFunction.cancelEvent(emailCreator,passwordCreator,eventId);
         //Switch Reset DB for the last to prevent another scenario should still working
-        notifEventApplicantFunction.resetCancelEvent(eventIdCanceled);
+        notifEventApplicantFunction.resetCancelEvent(eventId);
     }
 
     @Then("Get notification for their applications if event creator successfully cancel the event")
@@ -115,7 +115,7 @@ public class NotifEventApplicantStep {
         emailCreator = list.get(0).get("email");
         passwordCreator = list.get(0).get("password");
         //Send API to edit the event
-        notifEventApplicantFunction.editEvent(emailCreator,passwordCreator,eventIdCanceled);
+        notifEventApplicantFunction.editEvent(emailCreator,passwordCreator,eventId);
     }
 
     @Then("Get notification for their applications if event creator successfully edit the event")

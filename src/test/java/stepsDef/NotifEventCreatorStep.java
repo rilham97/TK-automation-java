@@ -19,9 +19,8 @@ public class NotifEventCreatorStep {
     String passwordCreator;
    	String emailApplicant;
 	String passwordApplicant;
-	int eventIdApplied = 368;
-	int eventIdCanceled = 421;
-	
+	int eventIdApplied = 431;
+	int eventIdCanceled = 432;
 
     @Given("Event Creator has access the home screen")
     public void event_Creator_has_access_the_home_screen(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
@@ -41,6 +40,9 @@ public class NotifEventCreatorStep {
         emailApplicant = list.get(0).get("email");
         passwordApplicant = list.get(0).get("password");
         
+        //Reset the database first before accept using API
+        notifEventCreatorFunction.resetToDelete(eventIdApplied,emailApplicant);
+        //Send API to apply an event
     	notifEventCreatorFunction.applyEvent(emailApplicant, passwordApplicant, eventIdApplied);
     }
 
@@ -53,7 +55,6 @@ public class NotifEventCreatorStep {
     @Then("Get notification for their created event if other user successfully applying to the event")
     public void get_notification_for_their_created_event_if_other_user_successfully_applying_to_the_event() {
     	notifEventCreatorFunction.verifyNotifApplied();
-    	notifEventCreatorFunction.resetApply(eventIdApplied,emailApplicant);
     }
     
     @Then("The number of notification icons will increasing")
@@ -74,12 +75,17 @@ public class NotifEventCreatorStep {
     @Then("Get notification for their created event if other user successfully cancel application to the event")
     public void get_notification_for_their_created_event_if_other_user_successfully_cancel_application_to_the_event() {
     	notifEventCreatorFunction.verifyNotifCanceled();
-    	notifEventCreatorFunction.resetCancelApplication(eventIdCanceled, emailApplicant);
+    	notifEventCreatorFunction.resetToActive(eventIdCanceled, emailApplicant);
     }
 
     @When("The user minimize the application")
     public void the_user_minimize_the_application() {
         mainFunction.minimizeApplication();
+        try {
+            Thread.sleep(3000);                
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
     }
 
     @When("Open notification tray from own device")

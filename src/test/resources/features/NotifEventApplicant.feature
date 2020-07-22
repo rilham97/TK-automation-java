@@ -20,8 +20,7 @@ Feature: Notification for Event Applicant
       | email            | password |
       | creator@mail.com | R3st@mu  |
     And Open notification tray from own device
-    Then The number of notification icons will increasing
-    And Get notification for their applications if event creator successfully accept the application
+    Then Get notification for their applications if event creator successfully accept the application
 	@CancelAccept
   Scenario: Applicant want to see notification when event creator successfully cancel the acceptance
     Given Applicant has access the home screen
@@ -43,8 +42,7 @@ Feature: Notification for Event Applicant
       | email            | password |
       | creator@mail.com | R3st@mu  |
     And Open notification tray from own device
-    Then The number of notification icons will increasing
-    And Get notification for their applications if event creator successfully cancel the acceptance
+    Then Get notification for their applications if event creator successfully cancel the acceptance
 	@Reject
   Scenario: Applicant want to see notification when event creator successfully reject the application
     Given Applicant has access the home screen
@@ -66,8 +64,7 @@ Feature: Notification for Event Applicant
       | email            | password |
       | creator@mail.com | R3st@mu  |
     And Open notification tray from own device
-    Then The number of notification icons will increasing
-    And Get notification for their applications if event creator successfully reject the application
+    Then Get notification for their applications if event creator successfully reject the application
 	@CancelEvent
   Scenario: Applicant want to see notification when event creator successfully cancel the event
     Given Applicant has access the home screen
@@ -89,8 +86,7 @@ Feature: Notification for Event Applicant
       | email            | password |
       | creator@mail.com | R3st@mu  |
     And Open notification tray from own device
-    Then The number of notification icons will increasing
-    And Get notification for their applications if event creator successfully cancel the event
+    Then Get notification for their applications if event creator successfully cancel the event
 	@EditEvent
   Scenario: Applicant want to see notification when event creator successfully edit the event
     Given Applicant has access the home screen
@@ -112,5 +108,4 @@ Feature: Notification for Event Applicant
       | email            | password |
       | creator@mail.com | R3st@mu  |
     And Open notification tray from own device
-    Then The number of notification icons will increasing
-    And Get notification for their applications if event creator successfully edit the event
+    Then Get notification for their applications if event creator successfully edit the event
