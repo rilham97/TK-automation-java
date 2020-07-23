@@ -1,16 +1,16 @@
 package stepsDef;
 
 import base.CancelApplicationFunction;
-import base.FilterMyEventFunction;
+import base.FilterMyAppliedEventFunction;
 import base.LoginFunction;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class FilterMyEventStep {
+public class FilterAppliedEventStep {
     LoginFunction loginFunction = new LoginFunction();
     CancelApplicationFunction cancelApplicationFunction = new CancelApplicationFunction();
-    FilterMyEventFunction filterMyEventFunction = new FilterMyEventFunction();
+    FilterMyAppliedEventFunction filterMyAppliedEventFunction = new FilterMyAppliedEventFunction();
 
     @Given("user already in the my applied event screen")
     public void user_already_in_the_my_applied_event_screen() throws InterruptedException {
@@ -26,21 +26,21 @@ public class FilterMyEventStep {
 
     @When("user click on filter icon")
     public void user_click_on_filter_icon() {
-        filterMyEventFunction.clickFilterIcon();
+        filterMyAppliedEventFunction.clickFilterIcon();
     }
 
     @When("user click on past tab")
     public void user_click_on_past_tab() {
-        filterMyEventFunction.clickPastTab();
+        filterMyAppliedEventFunction.clickPastTab();
     }
 
     @When("click on one of {string} filter")
     public void click_on_one_of_filter(String inputUser) {
-        filterMyEventFunction.clickFilterMethod(inputUser);
+        filterMyAppliedEventFunction.clickFilterMethod(inputUser);
     }
 
     @Then("application will display only events with {string} status")
     public void application_will_display_only_events_with_status(String inputUser) {
-        filterMyEventFunction.verifyEventBoxStatus(inputUser);
+        filterMyAppliedEventFunction.verifyEventBoxStatus(inputUser);
     }
 }

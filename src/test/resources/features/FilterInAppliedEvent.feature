@@ -1,7 +1,7 @@
 # new feature
 # Tags: optional
 
-Feature: Filter in my event
+Feature: Filter in applied event
 
   @currentTab
   Scenario Outline: User wants to filter my current event
