@@ -2,8 +2,15 @@ package base;
 
 import static org.junit.Assert.assertTrue;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import utilities.APIcall;
 import utilities.DBCall;
+
+import java.util.concurrent.TimeUnit;
 
 public class NotifEventCreatorFunction extends BaseDriver {
 	MainFunction mainFunction = new MainFunction();
@@ -11,8 +18,8 @@ public class NotifEventCreatorFunction extends BaseDriver {
 	static String bellIcon = "//android.view.View[3]/android.view.View[3]";
 	String noitfTitle = "//*[@text='Notification']";
 	String markAsReadBtn = "//*[@text='Mark All As Read']";
-	String notifApplied = "//*[contains(@text,'Someone applied to your event')]";
-	String notifCanceled = "//*[contains(@text,'Someone cancel application to your event')]";
+	String notifApplied = "//*[contains(@text,'Someone applied to your event') and (@index =0)]";
+	String notifCanceled = "//*[contains(@text,'Someone cancel application to your event') and (@index =0)]";
 	int numberBell1 = 0;
 	int numberBell2 = 0 ;
 
@@ -27,10 +34,12 @@ public class NotifEventCreatorFunction extends BaseDriver {
 
 	public void verifyNotifApplied() {
 		mainFunction.verifyEl(notifApplied);
+		mainFunction.click(notifApplied);
 	}
 	
 	public void verifyNotifCanceled() {
 		mainFunction.verifyEl(notifCanceled);
+		mainFunction.click(notifCanceled);
 	}
 
 	public void verifyBeforeNotif() {
@@ -68,7 +77,6 @@ public class NotifEventCreatorFunction extends BaseDriver {
 		APIcall.login(email,password);
 		APIcall.cancelApplicationEvent(eventId);
 	}
-	
 
 	public void checkIncreasing() {
 		try {
@@ -78,13 +86,14 @@ public class NotifEventCreatorFunction extends BaseDriver {
 		}
 	}
 
-	public void resetApply(int event_id, String email) {
+	public void resetToDelete(int event_id, String email) {
 		String sqlQuery = "UPDATE applicants SET data_state = 'DELETED' WHERE data_state = 'ACTIVE' and event_id = "+event_id+" and created_by = '"+email+"';";
 		DBCall.executeSQLQuery(sqlQuery);
 	}
 	
-	public void resetCancelApplication(int event_id, String email) {
+	public void resetToActive(int event_id, String email) {
 		String sqlQuery = "UPDATE applicants SET data_state = 'ACTIVE' WHERE data_state = 'DELETED' and event_id = "+event_id+" and created_by = '"+email+"';";
 		DBCall.executeSQLQuery(sqlQuery);
 	}
+
 }
