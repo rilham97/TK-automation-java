@@ -1,6 +1,6 @@
 package base;
 
-public class FilterMyEventFunction extends BaseDriver {
+public class FilterMyAppliedEventFunction extends BaseDriver {
     MainFunction mainFunction = new MainFunction();
     String filterIcon = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button[3]";
     String firstEventBox = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View";
