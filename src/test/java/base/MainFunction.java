@@ -44,6 +44,14 @@ public class MainFunction extends BaseDriver {
         Assert.assertTrue(form.getText().contains(text));
     }
 
+    public String getTextFromElement(String element){
+        String text="";
+        MobileElement form = driver.findElementByXPath(element);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        text = form.getText();
+        return text ;
+    }
+
     public void input(String element, String text) throws InterruptedException {
         Actions action = new Actions(driver);
         MobileElement form = (MobileElement) driver.findElementByXPath(element);
