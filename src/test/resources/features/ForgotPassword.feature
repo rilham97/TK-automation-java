@@ -16,5 +16,5 @@ Feature: Forgot Password
 
     Examples: 
       | email             | verificationCode | newPassword | confirmPassword |
-      | "reset@gmail.com" | "10201"          | "Ron@123!"  | "Ron@123!"      |
-      | "reset@gmail.com" | "10201"          | "R3set!"    | "R3set!"        |
+      | "reset@gmail.com" | "010201"          | "Ron@123!"  | "Ron@123!"      |
+      | "reset@gmail.com" | "010201"          | "R3set!"    | "R3set!"        |
