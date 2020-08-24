@@ -29,10 +29,12 @@ public class FilterEventFunction extends BaseDriver {
     private String endTime18 = "//android.widget.ScrollView/android.view.View[19]";
     private String cityForm = "//*[@text='Type here']";
     private String applyBtn = "//*[@text='Apply']";
-    private String okBtn = "//*[@text='OK']";
     private String currentYear;
-    private String year2021 = "//*[@text='2021']";
-    private String year2022 = "//*[@text='2022']";
+	//Date picker
+	private String inputDateBtn = "//*[@text='Switch to input']";
+	private String dateForm = "//*[contains(@text,'mm/dd/yyyy')]";
+	private String okBtn = "//*[@text='OK']";
+	private String cancelBtn = "//*[@text='CANCEL']";
     private String firstEvent = "//android.view.View[2]/android.view.View/android.view.View[1]/android.view.View";
 
     public void clickSearchBtn() {
@@ -93,16 +95,17 @@ public class FilterEventFunction extends BaseDriver {
     	String currentDate = formatter1.format(date);
     	currentDateForm = "//*[@text='"+currentDate+"']";
     }
-    public void selectStartDate() throws ParseException{
+    public void selectStartDate(String dateInput) throws ParseException, InterruptedException{
     	getCurrentDate();
-    	getCurrentYear();
+    	//getCurrentYear();
     	mainFunction.click(currentDateForm);
-    	mainFunction.click(currentYear);
-        mainFunction.click(year2021);
-        mainFunction.click(okBtn);
+    	mainFunction.click(inputDateBtn);
+    	mainFunction.clear(dateForm);
+    	mainFunction.input(dateForm, dateInput);
+		mainFunction.click(okBtn);
     }
 
-    public void selectEndDate() throws ParseException{
+    public void selectEndDate(String dateInput) throws ParseException, InterruptedException{
     	//End Date form always next three month from start date.
     	String dateAppium = driver.getDeviceTime();
     	String dates = dateAppium.substring(0, dateAppium.indexOf("T"));
@@ -121,9 +124,10 @@ public class FilterEventFunction extends BaseDriver {
     	System.out.println(endDate);
     	endDateForm = "//*[@text='"+endDate+"']";
         mainFunction.click(endDateForm);
-    	mainFunction.click(currentYear);
-        mainFunction.click(year2022);
-        mainFunction.click(okBtn);
+    	mainFunction.click(inputDateBtn);
+    	mainFunction.clear(dateForm);
+    	mainFunction.input(dateForm, dateInput);
+		mainFunction.click(okBtn);;
     }
 
     public void selectStartTime(){

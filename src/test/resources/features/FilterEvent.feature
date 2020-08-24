@@ -17,4 +17,4 @@ Feature: Filter event
 
     Examples: 
       | gender   | city      |
-      | "Female" | "Denpasar" |
+      | "Female" | "Denpasar"|

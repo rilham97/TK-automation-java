@@ -32,13 +32,13 @@ public class FilterEventStep {
     }
 
     @When("User select the start date")
-    public void user_select_the_start_date() throws ParseException {
-    	filterEventFunction.selectStartDate();
+    public void user_select_the_start_date() throws ParseException, InterruptedException {
+    	filterEventFunction.selectStartDate("10/04/2021");
     }
 
     @When("User select the end date")
-    public void user_select_the_end_date() throws ParseException {
-    	filterEventFunction.selectEndDate();
+    public void user_select_the_end_date() throws ParseException, InterruptedException {
+    	filterEventFunction.selectEndDate("10/04/2022");
     }
 
     @When("User select the start time")

@@ -16,6 +16,13 @@ public class RegisterFunction extends BaseDriver{
 	private String confirmpassForm = "//*[@text='Confirm Password']";
 	private String tncCheckbox = "//android.widget.CheckBox";
 	private String tncBtn = "//*[@text='Term And Condition']";
+	//Date picker
+	private String inputDateBtn = "//*[@text='Switch to input']";
+	private String dateForm = "//*[contains(@text,'mm/dd/yyyy')]";
+	private String yesBtn = "//*[@text='Yes']";
+	private String noBtn = "//*[@text='No']";
+	private String okBtn = "//*[@text='OK']";
+	private String cancelBtn = "//*[@text='CANCEL']";
 	//Optional Information Screen
 	private String optionalTitle = "User Optional Information";
 	private String cameraBtn = "//android.view.View/android.widget.Button[1]";
@@ -44,9 +51,12 @@ public class RegisterFunction extends BaseDriver{
 		mainFunc.input(fullNameForm, fullName);
 	}
 	
-	public void inputDob(String year) {
+	public void inputDob(String year) throws InterruptedException {
 		mainFunc.click(dobForm);
-		popUp.setYearBirth(year);
+		mainFunc.click(inputDateBtn);
+		mainFunc.clear(dateForm);
+		mainFunc.input(dateForm, year);
+		mainFunc.click(okBtn);
 	}
 	
 	public void inputGender(String gender) {
