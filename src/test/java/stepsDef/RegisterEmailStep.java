@@ -26,8 +26,8 @@ public class RegisterEmailStep {
 	}
 
 	@When("Input date of birth")
-	public void input_date_of_birth() {
-		register.inputDob("1996");
+	public void input_date_of_birth() throws InterruptedException {
+		register.inputDob("12/01/1996");
 	}
 
 	@When("Choose {string} gender")
