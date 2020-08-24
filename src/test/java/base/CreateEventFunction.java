@@ -41,6 +41,9 @@ public class CreateEventFunction extends BaseDriver {
     String createEventButton = "//*[@text='CREATE EVENT']";
     String snackBarEventCreated = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[3]";
 
+    String editDate ="//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button[1]";
+    String dateField ="//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText";
+    String ok = "//android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button[3]";
     public void clickCreateEventIcon() {
         mainFunc.click(createEventIcon);
     }
@@ -50,11 +53,13 @@ public class CreateEventFunction extends BaseDriver {
     }
 
     public void inputCity(String userInput) throws InterruptedException {
-        MobileElement city = driver.findElement(By.xpath(cityPath));
-        action.click(city).perform();
-        Thread.sleep(3000);
-        action.sendKeys(userInput).perform();
-        Thread.sleep(3000);
+        mainFunc.input(cityPath, userInput);
+
+//        MobileElement city = driver.findElement(By.xpath(cityPath));
+//        action.click(city).perform();
+//        Thread.sleep(3000);
+//        action.sendKeys(userInput).perform();
+//        Thread.sleep(3000);
     }
 
     public void setAge() throws InterruptedException {
@@ -69,11 +74,18 @@ public class CreateEventFunction extends BaseDriver {
     }
 
     public void inputEventDate() throws InterruptedException {
-
         mainFunc.click(eventDate);
         mainFunc.click(nextMonth);
         mainFunc.click(date);
         mainFunc.click(okCalender);
+    }
+
+    public void inputDate(String userInput) throws InterruptedException {
+        mainFunc.click(eventDate);
+        mainFunc.click(editDate);
+        mainFunc.clear(dateField);
+        mainFunc.input(dateField,userInput);
+        mainFunc.click(ok);
     }
 
     public void selectCitySuggestion() throws InterruptedException {
