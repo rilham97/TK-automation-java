@@ -8,7 +8,7 @@ Feature: Create event
     When User click on create event button icon
     And User input valid event title with <title>
     And User input valid city with <city>
-    And User input valid event date
+    And User input valid event date with <date>
     And User input valid event start time
     And User input valid event end time
     And User set range age
@@ -18,6 +18,6 @@ Feature: Create event
     Then Event is created
     And User directed to home screen
 
-    Examples: 
-      | title                     | city      | addInfo         |
-      | "Kondangan makan Kenyang" | "Jakarta" | "makan kenyang" |
+    Examples:
+      | title                     | city      | date         | addInfo         |
+      | "Kondangan makan Kenyang" | "Jakarta" | "09/10/2020" | "makan kenyang" |

@@ -34,12 +34,13 @@ public class CreateEventStep {
     @When("User input valid city with {string}")
     public void user_input_valid_city_with(String userInput) throws InterruptedException {
         createEventFunction.inputCity(userInput);
-        createEventFunction.selectCitySuggestion();
+        //createEventFunction.selectCitySuggestion();
     }
 
-    @When("User input valid event date")
-    public void user_input_valid_event_date_with() throws InterruptedException {
-        createEventFunction.inputEventDate();
+    @When("User input valid event date with {string}")
+    public void user_input_valid_event_date_with(String userInput) throws InterruptedException {
+        //createEventFunction.inputEventDate();
+        createEventFunction.inputDate(userInput);
     }
 
     @When("User input valid event start time")
