@@ -52,6 +52,17 @@ public class APIcall {
 		int statusCode = response.getStatusCode();
 		Assert.assertEquals(statusCode, 200);
 	}
+	
+	public static void updatePP(String pathImage) {
+		RestAssured.baseURI = apiURL;
+		RequestSpecification request = RestAssured.given();
+		request.header("Authorization", "Bearer " + token);
+		request.header("Accept", "application/json");
+		request.multiPart("file", new File(pathImage));
+		Response response = request.post("/profile/update");
+		int statusCode = response.getStatusCode();
+		Assert.assertEquals(statusCode, 200);
+	}
 
 	public static void applyEvent(int eventId) {
 		RestAssured.baseURI = apiURL;
