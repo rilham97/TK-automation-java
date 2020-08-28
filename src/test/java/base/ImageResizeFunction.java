@@ -36,7 +36,6 @@ public class ImageResizeFunction extends BaseDriver{
 		res.next();
    		String picName = res.getString(1);			
     	String image= "http://chippermitrais.ddns.net/imagefile/download/"+picName;
-    	System.out.println(image);
    		int imageSize = 0;
 
    		final URL uri=new URL(image);

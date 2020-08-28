@@ -14,4 +14,5 @@ Feature: Image Resize
 
     Examples: 
       | path            |
-      | "img/67.5MB.png" |
+      | "img/9.7MB.jpg" |
+      | "img/67.5MB.png"|
